@@ -44,10 +44,6 @@ final class Promise implements HttpPromise
      */
     private $request;
 
-    /**
-     * @param PromiseInterface $promise
-     * @param RequestInterface $request
-     */
     public function __construct(PromiseInterface $promise, RequestInterface $request)
     {
         $this->request = $request;
@@ -108,9 +104,6 @@ final class Promise implements HttpPromise
 
     /**
      * Converts a Guzzle exception into an Httplug exception.
-     *
-     * @param GuzzleExceptions\GuzzleException $exception
-     * @param RequestInterface                 $request
      *
      * @return HttplugException
      */
