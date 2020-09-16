@@ -1,6 +1,6 @@
 {
     "name": "php-http/guzzle7-adapter",
-    "description": "Guzzle 6 HTTP Adapter",
+    "description": "Guzzle 7 HTTP Adapter",
     "license": "MIT",
     "keywords": ["guzzle", "http"],
     "homepage": "http://httplug.io",

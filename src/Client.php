@@ -35,7 +35,7 @@ final class Client implements HttpClient, HttpAsyncClient
     }
 
     /**
-     * Factory method to create the Guzzle 6 adapter with custom Guzzle configuration.
+     * Factory method to create the Guzzle 7 adapter with custom Guzzle configuration.
      */
     public static function createWithConfig(array $config): Client
     {
