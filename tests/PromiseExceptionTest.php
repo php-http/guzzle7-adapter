@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Http\Adapter\Guzzle6\Tests;
+namespace Http\Adapter\Guzzle7\Tests;
 
 use GuzzleHttp\Exception as GuzzleExceptions;
-use Http\Adapter\Guzzle6\Exception\UnexpectedValueException;
-use Http\Adapter\Guzzle6\Promise;
+use Http\Adapter\Guzzle7\Exception\UnexpectedValueException;
+use Http\Adapter\Guzzle7\Promise;
 use Http\Client\Exception\HttpException;
 use Http\Client\Exception\NetworkException;
 use Http\Client\Exception\RequestException;
@@ -51,9 +51,9 @@ final class PromiseExceptionTest extends TestCase
             [$request, new GuzzleExceptions\TransferException('foo'), TransferException::class],
             // check cases without response
             [$request, new GuzzleExceptions\RequestException('foo', $request), RequestException::class],
-            [$request, new GuzzleExceptions\BadResponseException('foo', $request), RequestException::class],
-            [$request, new GuzzleExceptions\ClientException('foo', $request), RequestException::class],
-            [$request, new GuzzleExceptions\ServerException('foo', $request), RequestException::class],
+            [$request, new GuzzleExceptions\BadResponseException('foo', $request, $response), RequestException::class],
+            [$request, new GuzzleExceptions\ClientException('foo', $request, $response), RequestException::class],
+            [$request, new GuzzleExceptions\ServerException('foo', $request, $response), RequestException::class],
             // Non PSR-18 Exceptions thrown
             [$request, new \Exception('foo'), TransferException::class],
             [$request, new \Error('foo'), TransferException::class],

@@ -1,11 +1,11 @@
 # Guzzle 6 HTTP Adapter
 
-[![Latest Version](https://img.shields.io/github/release/php-http/guzzle6-adapter.svg?style=flat-square)](https://github.com/php-http/guzzle6-adapter/releases)
+[![Latest Version](https://img.shields.io/github/release/php-http/guzzle7-adapter.svg?style=flat-square)](https://github.com/php-http/guzzle7-adapter/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
-[![Build Status](https://img.shields.io/travis/php-http/guzzle6-adapter.svg?style=flat-square)](https://travis-ci.org/php-http/guzzle6-adapter)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/php-http/guzzle6-adapter.svg?style=flat-square)](https://scrutinizer-ci.com/g/php-http/guzzle6-adapter)
-[![Quality Score](https://img.shields.io/scrutinizer/g/php-http/guzzle6-adapter.svg?style=flat-square)](https://scrutinizer-ci.com/g/php-http/guzzle6-adapter)
-[![Total Downloads](https://img.shields.io/packagist/dt/php-http/guzzle6-adapter.svg?style=flat-square)](https://packagist.org/packages/php-http/guzzle6-adapter)
+[![Build Status](https://img.shields.io/travis/php-http/guzzle7-adapter.svg?style=flat-square)](https://travis-ci.org/php-http/guzzle7-adapter)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/php-http/guzzle7-adapter.svg?style=flat-square)](https://scrutinizer-ci.com/g/php-http/guzzle7-adapter)
+[![Quality Score](https://img.shields.io/scrutinizer/g/php-http/guzzle7-adapter.svg?style=flat-square)](https://scrutinizer-ci.com/g/php-http/guzzle7-adapter)
+[![Total Downloads](https://img.shields.io/packagist/dt/php-http/guzzle7-adapter.svg?style=flat-square)](https://packagist.org/packages/php-http/guzzle7-adapter)
 
 **Guzzle 6 HTTP Adapter.**
 
@@ -15,7 +15,7 @@
 Via Composer
 
 ``` bash
-$ composer require php-http/guzzle6-adapter
+$ composer require php-http/guzzle7-adapter
 ```
 
 

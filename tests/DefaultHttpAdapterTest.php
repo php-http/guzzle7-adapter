@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Http\Adapter\Guzzle6\Tests;
+namespace Http\Adapter\Guzzle7\Tests;
 
-use Http\Adapter\Guzzle6\Client;
+use Http\Adapter\Guzzle7\Client;
 use Http\Client\Tests\HttpClientTest;
 
 /**

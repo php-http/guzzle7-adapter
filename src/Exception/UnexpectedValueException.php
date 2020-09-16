@@ -1,6 +1,6 @@
 <?php
 
-namespace Http\Adapter\Guzzle6\Exception;
+namespace Http\Adapter\Guzzle7\Exception;
 
 use Http\Client\Exception;
 

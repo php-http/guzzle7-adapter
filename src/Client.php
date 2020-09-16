@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Http\Adapter\Guzzle6;
+namespace Http\Adapter\Guzzle7;
 
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\ClientInterface;
@@ -14,29 +14,24 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * HTTP Adapter for Guzzle 6.
+ * HTTP Adapter for Guzzle 7.
  *
- * @author David de Boer <david@ddeboer.nl>
+ * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */
 final class Client implements HttpClient, HttpAsyncClient
 {
     /**
      * @var ClientInterface
      */
-    private $client;
+    private $guzzle;
 
-    /**
-     * If you pass a Guzzle instance as $client, make sure to configure Guzzle to not
-     * throw exceptions on HTTP error status codes, or this adapter will violate PSR-18.
-     * See also self::buildClient at the bottom of this class.
-     */
-    public function __construct(?ClientInterface $client = null)
+    public function __construct(?ClientInterface $guzzle = null)
     {
-        if (!$client) {
-            $client = self::buildClient();
+        if (!$guzzle) {
+            $guzzle = self::buildClient();
         }
 
-        $this->client = $client;
+        $this->guzzle = $guzzle;
     }
 
     /**
@@ -52,9 +47,7 @@ final class Client implements HttpClient, HttpAsyncClient
      */
     public function sendRequest(RequestInterface $request): ResponseInterface
     {
-        $promise = $this->sendAsyncRequest($request);
-
-        return $promise->wait();
+        return $this->sendAsyncRequest($request)->wait();
     }
 
     /**
@@ -62,7 +55,7 @@ final class Client implements HttpClient, HttpAsyncClient
      */
     public function sendAsyncRequest(RequestInterface $request)
     {
-        $promise = $this->client->sendAsync($request);
+        $promise = $this->guzzle->sendAsync($request);
 
         return new Promise($promise, $request);
     }
