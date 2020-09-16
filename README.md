@@ -4,7 +4,7 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Total Downloads](https://img.shields.io/packagist/dt/php-http/guzzle7-adapter.svg?style=flat-square)](https://packagist.org/packages/php-http/guzzle7-adapter)
 
-**Guzzle 6 HTTP Adapter.**
+**Guzzle 7 HTTP Adapter.**
 
 ## Install
 
