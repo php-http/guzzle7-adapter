@@ -16,7 +16,7 @@ $ composer require php-http/guzzle7-adapter
 
 ## Documentation
 
-Please see the [official documentation](http://docs.php-http.org/en/latest/clients/guzzle6-adapter.html).
+Please see the [official documentation](http://docs.php-http.org/en/latest/clients/guzzle7-adapter.html).
 
 ## Testing
 
