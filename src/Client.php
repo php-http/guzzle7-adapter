@@ -8,6 +8,7 @@ use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
+use GuzzleHttp\Utils;
 use Http\Client\HttpAsyncClient;
 use Http\Client\HttpClient;
 use Psr\Http\Message\RequestInterface;
@@ -65,7 +66,7 @@ final class Client implements HttpClient, HttpAsyncClient
      */
     private static function buildClient(array $config = []): GuzzleClient
     {
-        $handlerStack = new HandlerStack(\GuzzleHttp\choose_handler());
+        $handlerStack = new HandlerStack(Utils::chooseHandler());
         $handlerStack->push(Middleware::prepareBody(), 'prepare_body');
         $config = array_merge(['handler' => $handlerStack], $config);
 
