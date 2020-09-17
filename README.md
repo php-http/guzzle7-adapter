@@ -1,4 +1,4 @@
-# Guzzle 6 HTTP Adapter
+# Guzzle 7 HTTP Adapter
 
 [![Latest Version](https://img.shields.io/github/release/php-http/guzzle7-adapter.svg?style=flat-square)](https://github.com/php-http/guzzle7-adapter/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
