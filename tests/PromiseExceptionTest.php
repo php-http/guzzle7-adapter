@@ -28,7 +28,7 @@ final class PromiseExceptionTest extends TestCase
         RequestInterface $request,
         $reason,
         string $adapterExceptionClass
-    ) {
+    ): void {
         $guzzlePromise = new \GuzzleHttp\Promise\Promise();
         $guzzlePromise->reject($reason);
         $promise = new Promise($guzzlePromise, $request);
