@@ -6,6 +6,7 @@ namespace Http\Adapter\Guzzle7\Tests;
 
 use GuzzleHttp\Client as GuzzleClient;
 use Http\Adapter\Guzzle7\Client;
+use Http\Client\HttpAsyncClient;
 use Http\Client\Tests\HttpAsyncClientTest;
 
 /**
@@ -16,7 +17,7 @@ abstract class HttpAsyncAdapterTest extends HttpAsyncClientTest
     /**
      * {@inheritdoc}
      */
-    protected function createHttpAsyncClient()
+    protected function createHttpAsyncClient(): HttpAsyncClient
     {
         return new Client(new GuzzleClient(['handler' => $this->createHandler()]));
     }
