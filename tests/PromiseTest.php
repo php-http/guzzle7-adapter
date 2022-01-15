@@ -8,6 +8,7 @@ use Exception;
 use GuzzleHttp\Promise\RejectedPromise;
 use Http\Adapter\Guzzle7\Promise;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Psr\Http\Message\RequestInterface;
 
 /**
@@ -15,6 +16,8 @@ use Psr\Http\Message\RequestInterface;
  */
 class PromiseTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function testNonDomainExceptionIsHandled(): void
     {
         $this->expectException(Exception::class);
