@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Add missing `composer test` command and use it in CI
 - Fix deprecated usage of prophesize in phpunit tests
-  and therefore bump PHP version requirement to 7.3
+ - Drop support for PHP version 7.2
 
 ## [1.0.0] - 2021-03-09
 
