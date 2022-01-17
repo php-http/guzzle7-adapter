@@ -8,7 +8,7 @@ jobs:
     strategy:
       max-parallel: 10
       matrix:
-        php: [ '7.2', '7.3', '7.4']
+        php: [ '7.3', '7.4']
 
     steps:
       - name: Set up PHP
@@ -28,7 +28,7 @@ jobs:
         run: ./vendor/bin/http_test_server > /dev/null 2>&1 &
 
       - name: Run tests
-        run: ./vendor/bin/phpunit
+        run: composer test
 
   lowest:
     name: Lowest deps
