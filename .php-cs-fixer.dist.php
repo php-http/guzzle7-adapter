@@ -2,12 +2,11 @@
 
 $finder = PhpCsFixer\Finder::create()
     ->exclude('vendor')
-    ->in(__DIR__)
-;
+    ->in(__DIR__);
+$config = new PhpCsFixer\Config();
 
-return PhpCsFixer\Config::create()
+return $config->setFinder($finder)
     ->setRules([
          '@Symfony' => true,
          'array_syntax' => ['syntax' => 'short'],
-    ])
-    ->setFinder($finder);
+    ]);
