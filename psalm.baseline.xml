@@ -5,4 +5,9 @@
       <code>$exception-&gt;getResponse()</code>
     </PossiblyNullArgument>
   </file>
+  <file src="src/Client.php">
+    <PossiblyUnusedMethod occurrences="1">
+      <code>createWithConfig</code>
+    </PossiblyUnusedMethod>
+  </file>
 </files>

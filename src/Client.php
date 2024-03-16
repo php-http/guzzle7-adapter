@@ -43,17 +43,11 @@ final class Client implements HttpClient, HttpAsyncClient
         return new self(self::buildClient($config));
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function sendRequest(RequestInterface $request): ResponseInterface
     {
         return $this->sendAsyncRequest($request)->wait();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function sendAsyncRequest(RequestInterface $request)
     {
         $promise = $this->guzzle->sendAsync($request);

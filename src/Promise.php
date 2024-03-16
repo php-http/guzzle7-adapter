@@ -53,13 +53,13 @@ final class Promise implements HttpPromise
             $this->state = self::FULFILLED;
 
             return $response;
-        }, function ($reason) use ($request) {
+        }, function ($reason) {
             $this->state = self::REJECTED;
 
             if ($reason instanceof HttplugException) {
                 $this->exception = $reason;
             } elseif ($reason instanceof GuzzleExceptions\GuzzleException) {
-                $this->exception = $this->handleException($reason, $request);
+                $this->exception = $this->handleException($reason);
             } elseif ($reason instanceof \Throwable) {
                 $this->exception = new HttplugException\TransferException('Invalid exception returned from Guzzle7', 0, $reason);
             } else {
@@ -70,31 +70,22 @@ final class Promise implements HttpPromise
         });
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function then(callable $onFulfilled = null, callable $onRejected = null)
+    public function then(?callable $onFulfilled = null, ?callable $onRejected = null)
     {
         return new static($this->promise->then($onFulfilled, $onRejected), $this->request);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getState()
     {
         return $this->state;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function wait($unwrap = true)
     {
         $this->promise->wait(false);
 
         if ($unwrap) {
-            if (self::REJECTED == $this->getState()) {
+            if (self::REJECTED === $this->getState()) {
                 throw $this->exception;
             }
 
@@ -107,7 +98,7 @@ final class Promise implements HttpPromise
      *
      * @return HttplugException
      */
-    private function handleException(GuzzleExceptions\GuzzleException $exception, RequestInterface $request)
+    private function handleException(GuzzleExceptions\GuzzleException $exception)
     {
         if ($exception instanceof GuzzleExceptions\ConnectException) {
             return new HttplugException\NetworkException($exception->getMessage(), $exception->getRequest(), $exception);

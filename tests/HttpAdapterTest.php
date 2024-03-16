@@ -14,9 +14,6 @@ use Psr\Http\Client\ClientInterface;
  */
 abstract class HttpAdapterTest extends HttpClientTest
 {
-    /**
-     * {@inheritdoc}
-     */
     protected function createHttpAdapter(): ClientInterface
     {
         return new Client(new GuzzleClient(['handler' => $this->createHandler()]));

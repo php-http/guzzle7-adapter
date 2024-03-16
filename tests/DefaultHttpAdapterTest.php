@@ -13,9 +13,6 @@ use Psr\Http\Client\ClientInterface;
  */
 class DefaultHttpAdapterTest extends HttpClientTest
 {
-    /**
-     * {@inheritdoc}
-     */
     protected function createHttpAdapter(): ClientInterface
     {
         return new Client();

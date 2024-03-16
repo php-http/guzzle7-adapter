@@ -11,9 +11,6 @@ use GuzzleHttp\Handler\CurlHandler;
  */
 class CurlHttpAsyncAdapterTest extends HttpAsyncAdapterTest
 {
-    /**
-     * {@inheritdoc}
-     */
     protected function createHandler()
     {
         return new CurlHandler();

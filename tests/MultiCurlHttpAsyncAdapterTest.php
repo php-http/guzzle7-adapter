@@ -11,9 +11,6 @@ use GuzzleHttp\Handler\CurlMultiHandler;
  */
 class MultiCurlHttpAsyncAdapterTest extends HttpAsyncAdapterTest
 {
-    /**
-     * {@inheritdoc}
-     */
     protected function createHandler()
     {
         return new CurlMultiHandler();

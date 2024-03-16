@@ -11,9 +11,6 @@ use GuzzleHttp\Handler\StreamHandler;
  */
 class StreamHttpAsyncAdapterTest extends HttpAsyncAdapterTest
 {
-    /**
-     * {@inheritdoc}
-     */
     protected function createHandler()
     {
         return new StreamHandler();
