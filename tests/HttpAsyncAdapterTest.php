@@ -14,9 +14,6 @@ use Http\Client\Tests\HttpAsyncClientTest;
  */
 abstract class HttpAsyncAdapterTest extends HttpAsyncClientTest
 {
-    /**
-     * {@inheritdoc}
-     */
     protected function createHttpAsyncClient(): HttpAsyncClient
     {
         return new Client(new GuzzleClient(['handler' => $this->createHandler()]));

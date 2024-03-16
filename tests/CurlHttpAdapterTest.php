@@ -11,9 +11,6 @@ use GuzzleHttp\Handler\CurlHandler;
  */
 class CurlHttpAdapterTest extends HttpAdapterTest
 {
-    /**
-     * {@inheritdoc}
-     */
     protected function createHandler()
     {
         return new CurlHandler();
