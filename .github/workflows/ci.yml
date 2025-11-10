@@ -14,7 +14,7 @@ jobs:
     strategy:
       max-parallel: 10
       matrix:
-        php: [ '7.3', '7.4', '8.0', '8.1', '8.2', '8.3', '8.4']
+        php: [ '7.3', '7.4', '8.0', '8.1', '8.2', '8.3', '8.4', '8.4']
 
     steps:
       - name: Set up PHP
@@ -25,7 +25,7 @@ jobs:
           tools: flex
 
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Download dependencies
         run: composer update --no-interaction --prefer-dist --optimize-autoloader --prefer-stable
@@ -48,7 +48,7 @@ jobs:
           tools: flex
 
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Download dependencies
         run: composer update --no-interaction --prefer-dist --optimize-autoloader --prefer-stable --prefer-lowest
