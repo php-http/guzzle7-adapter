@@ -24,6 +24,7 @@ final class PromiseExceptionTest extends TestCase
     /**
      * @dataProvider exceptionThatIsThrownForGuzzleExceptionProvider
      */
+    ##[DataProvider('exceptionThatIsThrownForGuzzleExceptionProvider')]
     public function testExceptionThatIsThrownForGuzzleException(
         RequestInterface $request,
         $reason,
@@ -36,10 +37,10 @@ final class PromiseExceptionTest extends TestCase
         $promise->wait();
     }
 
-    public function exceptionThatIsThrownForGuzzleExceptionProvider(): array
+    public static function exceptionThatIsThrownForGuzzleExceptionProvider(): array
     {
-        $request = $this->getMockBuilder(RequestInterface::class)->getMock();
-        $response = $this->getMockBuilder(ResponseInterface::class)->getMock();
+        $request = (new PromiseExceptionTest)->getMockBuilder(RequestInterface::class)->getMock();
+        $response = (new PromiseExceptionTest)->getMockBuilder(ResponseInterface::class)->getMock();
 
         return [
             [$request, new GuzzleExceptions\ConnectException('foo', $request), NetworkException::class],
