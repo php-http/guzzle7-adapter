@@ -11,6 +11,7 @@ use Http\Client\Exception\HttpException;
 use Http\Client\Exception\NetworkException;
 use Http\Client\Exception\RequestException;
 use Http\Client\Exception\TransferException;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -24,7 +25,7 @@ final class PromiseExceptionTest extends TestCase
     /**
      * @dataProvider exceptionThatIsThrownForGuzzleExceptionProvider
      */
-    ##[DataProvider('exceptionThatIsThrownForGuzzleExceptionProvider')]
+    #[DataProvider('exceptionThatIsThrownForGuzzleExceptionProvider')]
     public function testExceptionThatIsThrownForGuzzleException(
         RequestInterface $request,
         $reason,
