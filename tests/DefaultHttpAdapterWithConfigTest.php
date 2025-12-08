@@ -13,7 +13,7 @@ class DefaultHttpAdapterWithConfigTest extends HttpClientTest
 {
     protected function createHttpAdapter(): ClientInterface
     {
-        $this->defaultHeaders['X-Test'] = 'configuration-value';
+        self::$defaultHeaders['X-Test'] = 'configuration-value';
 
         return Client::createWithConfig([
             'headers' => [
