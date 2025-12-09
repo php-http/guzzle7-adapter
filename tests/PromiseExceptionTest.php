@@ -40,8 +40,8 @@ final class PromiseExceptionTest extends TestCase
 
     public static function exceptionThatIsThrownForGuzzleExceptionProvider(): array
     {
-        $request = (new PromiseExceptionTest)->getMockBuilder(RequestInterface::class)->getMock();
-        $response = (new PromiseExceptionTest)->getMockBuilder(ResponseInterface::class)->getMock();
+        $request = (new PromiseExceptionTest('request'))->getMockBuilder(RequestInterface::class)->getMock();
+        $response = (new PromiseExceptionTest('response'))->getMockBuilder(ResponseInterface::class)->getMock();
 
         return [
             [$request, new GuzzleExceptions\ConnectException('foo', $request), NetworkException::class],
