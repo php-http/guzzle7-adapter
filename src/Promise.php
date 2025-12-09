@@ -70,19 +70,16 @@ final class Promise implements HttpPromise
         });
     }
 
-    #[\Override]
     public function then(?callable $onFulfilled = null, ?callable $onRejected = null)
     {
         return new static($this->promise->then($onFulfilled, $onRejected), $this->request);
     }
 
-    #[\Override]
     public function getState()
     {
         return $this->state;
     }
 
-    #[\Override]
     public function wait($unwrap = true)
     {
         $this->promise->wait(false);
