@@ -6,15 +6,15 @@ namespace Http\Adapter\Guzzle7\Tests;
 
 use GuzzleHttp\Client as GuzzleClient;
 use Http\Adapter\Guzzle7\Client;
-use Http\Client\HttpAsyncClient;
-use Http\Client\Tests\HttpAsyncClientTest;
+use Http\Client\Tests\HttpClientTest;
+use Psr\Http\Client\ClientInterface;
 
 /**
- * @author Joel Wurtz <joel.wurtz@gmail.com>
+ * @author GeLo <geloen.eric@gmail.com>
  */
-abstract class HttpAsyncAdapterTest extends HttpAsyncClientTest
+abstract class AbstractHttpAdapterTest extends HttpClientTest
 {
-    protected function createHttpAsyncClient(): HttpAsyncClient
+    protected function createHttpAdapter(): ClientInterface
     {
         return new Client(new GuzzleClient(['handler' => $this->createHandler()]));
     }
