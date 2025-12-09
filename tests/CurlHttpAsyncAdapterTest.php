@@ -9,7 +9,7 @@ use GuzzleHttp\Handler\CurlHandler;
 /**
  * @author Joel Wurtz <joel.wurtz@gmail.com>
  */
-class CurlHttpAsyncAdapterTest extends HttpAsyncAdapterTest
+class CurlHttpAsyncAdapterTest extends AbstractHttpAsyncAdapterTest
 {
     protected function createHandler()
     {

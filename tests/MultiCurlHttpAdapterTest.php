@@ -9,7 +9,7 @@ use GuzzleHttp\Handler\CurlMultiHandler;
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-class MultiCurlHttpAdapterTest extends HttpAdapterTest
+class MultiCurlHttpAdapterTest extends AbstractHttpAdapterTest
 {
     protected function createHandler()
     {
