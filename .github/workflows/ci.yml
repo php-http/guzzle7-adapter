@@ -26,7 +26,7 @@ jobs:
           tools: flex
 
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Download dependencies
         run: composer update --no-interaction --prefer-dist --optimize-autoloader --prefer-stable
@@ -49,7 +49,7 @@ jobs:
           tools: flex
 
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Download dependencies
         run: composer update --no-interaction --prefer-dist --optimize-autoloader --prefer-stable --prefer-lowest
