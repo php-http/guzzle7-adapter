@@ -19,7 +19,7 @@ class DefaultHttpAdapterWithConfigTest extends HttpClientTest
         if($property->isStatic()) {
             self::$defaultHeaders['X-Test'] = 'configuration-value';
         } else {
-            $this->$defaultHeaders['X-Test'] = 'configuration-value';
+            $this->defaultHeaders['X-Test'] = 'configuration-value';
         }
 
         return Client::createWithConfig([
