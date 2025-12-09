@@ -12,7 +12,7 @@ use Psr\Http\Client\ClientInterface;
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-abstract class AbstractHttpAdapterTest extends HttpClientTest
+abstract class AbstractHttpAdapter extends HttpClientTest
 {
     protected function createHttpAdapter(): ClientInterface
     {

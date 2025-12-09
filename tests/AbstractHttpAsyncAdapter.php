@@ -12,7 +12,7 @@ use Http\Client\Tests\HttpAsyncClientTest;
 /**
  * @author Joel Wurtz <joel.wurtz@gmail.com>
  */
-abstract class AbstractHttpAsyncAdapterTest extends HttpAsyncClientTest
+abstract class AbstractHttpAsyncAdapter extends HttpAsyncClientTest
 {
     protected function createHttpAsyncClient(): HttpAsyncClient
     {

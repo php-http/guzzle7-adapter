@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Http\Adapter\Guzzle7\Tests;
 
-use GuzzleHttp\Handler\StreamHandler;
+use GuzzleHttp\Handler\CurlHandler;
 
 /**
  * @author Joel Wurtz <joel.wurtz@gmail.com>
  */
-class StreamHttpAsyncAdapterTest extends AbstractHttpAsyncAdapterTest
+class CurlHttpAsyncAdapter extends AbstractHttpAsyncAdapter
 {
     protected function createHandler()
     {
-        return new StreamHandler();
+        return new CurlHandler();
     }
 }

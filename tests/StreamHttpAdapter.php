@@ -9,7 +9,7 @@ use GuzzleHttp\Handler\StreamHandler;
 /**
  * @author GeLo <geloen.eric@gmail.com>
  */
-class StreamHttpAdapterTest extends AbstractHttpAdapterTest
+class StreamHttpAdapter extends AbstractHttpAdapter
 {
     protected function createHandler()
     {
