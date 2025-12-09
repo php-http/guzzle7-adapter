@@ -44,7 +44,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@2.30.0
         with:
-          php-version: 7.3
+          php-version: 7.4
           coverage: none
           tools: flex
 
