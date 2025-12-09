@@ -7,9 +7,9 @@ namespace Http\Adapter\Guzzle7\Tests;
 use GuzzleHttp\Handler\StreamHandler;
 
 /**
- * @author Joel Wurtz <joel.wurtz@gmail.com>
+ * @author GeLo <geloen.eric@gmail.com>
  */
-class StreamHttpAsyncAdapterTest extends HttpAsyncAdapterTest
+class StreamHttpAdapter extends AbstractHttpAdapter
 {
     protected function createHandler()
     {

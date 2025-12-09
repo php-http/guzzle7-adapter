@@ -7,9 +7,9 @@ namespace Http\Adapter\Guzzle7\Tests;
 use GuzzleHttp\Handler\CurlHandler;
 
 /**
- * @author GeLo <geloen.eric@gmail.com>
+ * @author Joel Wurtz <joel.wurtz@gmail.com>
  */
-class CurlHttpAdapterTest extends HttpAdapterTest
+class CurlHttpAsyncAdapter extends AbstractHttpAsyncAdapter
 {
     protected function createHandler()
     {

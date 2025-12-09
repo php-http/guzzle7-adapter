@@ -11,6 +11,7 @@ use Http\Client\Exception\HttpException;
 use Http\Client\Exception\NetworkException;
 use Http\Client\Exception\RequestException;
 use Http\Client\Exception\TransferException;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -24,10 +25,11 @@ final class PromiseExceptionTest extends TestCase
     /**
      * @dataProvider exceptionThatIsThrownForGuzzleExceptionProvider
      */
+    #[DataProvider('exceptionThatIsThrownForGuzzleExceptionProvider')]
     public function testExceptionThatIsThrownForGuzzleException(
         RequestInterface $request,
         $reason,
-        string $adapterExceptionClass,
+        string $adapterExceptionClass
     ): void {
         $guzzlePromise = new \GuzzleHttp\Promise\Promise();
         $guzzlePromise->reject($reason);
@@ -36,10 +38,10 @@ final class PromiseExceptionTest extends TestCase
         $promise->wait();
     }
 
-    public function exceptionThatIsThrownForGuzzleExceptionProvider(): array
+    public static function exceptionThatIsThrownForGuzzleExceptionProvider(): array
     {
-        $request = $this->getMockBuilder(RequestInterface::class)->getMock();
-        $response = $this->getMockBuilder(ResponseInterface::class)->getMock();
+        $request = (new PromiseExceptionTest('request'))->getMockBuilder(RequestInterface::class)->getMock();
+        $response = (new PromiseExceptionTest('response'))->getMockBuilder(ResponseInterface::class)->getMock();
 
         return [
             [$request, new GuzzleExceptions\ConnectException('foo', $request), NetworkException::class],

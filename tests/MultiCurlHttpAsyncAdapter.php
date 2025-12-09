@@ -7,9 +7,9 @@ namespace Http\Adapter\Guzzle7\Tests;
 use GuzzleHttp\Handler\CurlMultiHandler;
 
 /**
- * @author GeLo <geloen.eric@gmail.com>
+ * @author Joel Wurtz <joel.wurtz@gmail.com>
  */
-class MultiCurlHttpAdapterTest extends HttpAdapterTest
+class MultiCurlHttpAsyncAdapter extends AbstractHttpAsyncAdapter
 {
     protected function createHandler()
     {
