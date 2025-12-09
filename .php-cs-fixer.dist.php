@@ -9,5 +9,5 @@ return $config->setFinder($finder)
     ->setRules([
          '@Symfony' => true,
          'array_syntax' => ['syntax' => 'short'],
-         'no_trailing_comma_in_singleline' => ['array', 'array_destructuring', 'group_import'],
+         'no_trailing_comma_in_singleline' => ['elements' => ['array', 'array_destructuring', 'group_import']],
     ]);
