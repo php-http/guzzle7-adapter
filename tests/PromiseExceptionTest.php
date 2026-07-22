@@ -46,7 +46,7 @@ final class PromiseExceptionTest extends TestCase
 
         yield [$request, new GuzzleExceptions\ConnectException('foo', $request), NetworkException::class];
 
-        yield [$request, new GuzzleExceptions\TooManyRedirectsException('foo', $request), RequestException::class];
+        yield [$request, new GuzzleExceptions\TooManyRedirectsException('foo', $request, $response), RequestException::class];
 
         yield [$request, new GuzzleExceptions\RequestException('foo', $request, $response), HttpException::class];
 
