@@ -38,28 +38,40 @@ final class PromiseExceptionTest extends TestCase
         $promise->wait();
     }
 
-    public static function exceptionThatIsThrownForGuzzleExceptionProvider(): array
+    public static function exceptionThatIsThrownForGuzzleExceptionProvider(): iterable
     {
         $request = (new PromiseExceptionTest('request'))->getMockBuilder(RequestInterface::class)->getMock();
         $response = (new PromiseExceptionTest('response'))->getMockBuilder(ResponseInterface::class)->getMock();
 
-        return [
-            [$request, new GuzzleExceptions\ConnectException('foo', $request), NetworkException::class],
-            [$request, new GuzzleExceptions\TooManyRedirectsException('foo', $request), RequestException::class],
-            [$request, new GuzzleExceptions\RequestException('foo', $request, $response), HttpException::class],
-            [$request, new GuzzleExceptions\BadResponseException('foo', $request, $response), HttpException::class],
-            [$request, new GuzzleExceptions\ClientException('foo', $request, $response), HttpException::class],
-            [$request, new GuzzleExceptions\ServerException('foo', $request, $response), HttpException::class],
-            [$request, new GuzzleExceptions\TransferException('foo'), TransferException::class],
-            // check cases without response
-            [$request, new GuzzleExceptions\RequestException('foo', $request), RequestException::class],
-            [$request, new GuzzleExceptions\BadResponseException('foo', $request, $response), RequestException::class],
-            [$request, new GuzzleExceptions\ClientException('foo', $request, $response), RequestException::class],
-            [$request, new GuzzleExceptions\ServerException('foo', $request, $response), RequestException::class],
-            // Non PSR-18 Exceptions thrown
-            [$request, new \Exception('foo'), TransferException::class],
-            [$request, new \Error('foo'), TransferException::class],
-            [$request, 'whatever', UnexpectedValueException::class],
-        ];
+
+        yield [$request, new GuzzleExceptions\ConnectException('foo', $request), NetworkException::class];
+
+        yield [$request, new GuzzleExceptions\TooManyRedirectsException('foo', $request), RequestException::class];
+
+        yield [$request, new GuzzleExceptions\RequestException('foo', $request, $response), HttpException::class];
+
+        yield [$request, new GuzzleExceptions\BadResponseException('foo', $request, $response), HttpException::class];
+
+        yield [$request, new GuzzleExceptions\ClientException('foo', $request, $response), HttpException::class];
+
+        yield [$request, new GuzzleExceptions\ServerException('foo', $request, $response), HttpException::class];
+
+        yield [$request, new GuzzleExceptions\TransferException('foo'), TransferException::class];
+
+        // check cases without response
+        yield [$request, new GuzzleExceptions\RequestException('foo', $request), RequestException::class];
+
+        yield [$request, new GuzzleExceptions\BadResponseException('foo', $request, $response), RequestException::class];
+
+        yield [$request, new GuzzleExceptions\ClientException('foo', $request, $response), RequestException::class];
+
+        yield [$request, new GuzzleExceptions\ServerException('foo', $request, $response), RequestException::class];
+
+        // Non PSR-18 Exceptions thrown
+        yield [$request, new \Exception('foo'), TransferException::class];
+
+        yield [$request, new \Error('foo'), TransferException::class];
+
+        yield [$request, 'whatever', UnexpectedValueException::class];
     }
 }
