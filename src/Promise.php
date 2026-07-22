@@ -109,7 +109,8 @@ final class Promise implements HttpPromise
 
         if ($exception instanceof GuzzleExceptions\RequestException) {
             // Make sure we have a response for the HttpException
-            if ($exception->hasResponse()) {
+            if ((class_exists(GuzzleExceptions\ResponseException::class) && $exception instanceof GuzzleExceptions\ResponseException)
+                || (method_exists($exception, 'hasResponse') && method_exists($exception, 'getResponse') && $exception->hasResponse())) {
                 return new HttplugException\HttpException(
                     $exception->getMessage(),
                     $exception->getRequest(),

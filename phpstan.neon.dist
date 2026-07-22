@@ -28,3 +28,43 @@ parameters:
             # Only occurs with phpunit/phpunit < 10.0.0
             reportUnmatched: false
             path: tests/PromiseExceptionTest.php
+
+        -
+            message: '#^Call to function method_exists\(\) with GuzzleHttp\\Exception\\RequestException and ''getResponse'' will always evaluate to true\.$#'
+            identifier: function.alreadyNarrowedType
+            count: 1
+            # Only occurs with guzzlehttp/guzzle < 8.0.0
+            reportUnmatched: false
+            path: src/Promise.php
+
+        -
+            message: '#^Call to function method_exists\(\) with GuzzleHttp\\Exception\\RequestException and ''hasResponse'' will always evaluate to true\.$#'
+            identifier: function.alreadyNarrowedType
+            count: 1
+            # Only occurs with guzzlehttp/guzzle < 8.0.0
+            reportUnmatched: false
+            path: src/Promise.php
+
+        -
+            message: '#^Parameter \#2 \$code of class GuzzleHttp\\Exception\\TransferException constructor expects int, PHPUnit\\Framework\\MockObject\\MockObject&Psr\\Http\\Message\\RequestInterface given\.$#'
+            identifier: argument.type
+            count: 1
+            # Only occurs with guzzlehttp/guzzle < 8.0.0
+            reportUnmatched: false
+            path: tests/PromiseExceptionTest.php
+
+        -
+            message: '#^Call to function method_exists\(\) with ''GuzzleHttp\\\\Exception\\\\TransferException'' and ''getRequest'' will always evaluate to true\.$#'
+            identifier: function.alreadyNarrowedType
+            count: 1
+            # Only occurs with guzzlehttp/guzzle ≥ 8.0.0
+            reportUnmatched: false
+            path: tests/PromiseExceptionTest.php
+
+        -
+            message: '#^Class GuzzleHttp\\Exception\\TransferException constructor invoked with 1 parameter, 2\-4 required\.$#'
+            identifier: arguments.count
+            count: 1
+            # Only occurs with guzzlehttp/guzzle ≥ 8.0.0
+            reportUnmatched: false
+            path: tests/PromiseExceptionTest.php

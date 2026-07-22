@@ -48,7 +48,12 @@ final class PromiseExceptionTest extends TestCase
 
         yield [$request, new GuzzleExceptions\TooManyRedirectsException('foo', $request, $response), RequestException::class];
 
-        yield [$request, new GuzzleExceptions\RequestException('foo', $request, $response), HttpException::class];
+        yield [$request, new GuzzleExceptions\RequestException('foo', $request), HttpException::class];
+
+        if (class_exists(GuzzleExceptions\ResponseException::class)) {
+            // Guzzle 8
+            yield [$request, new GuzzleExceptions\ResponseException('foo', $request, $response), HttpException::class];
+        }
 
         yield [$request, new GuzzleExceptions\BadResponseException('foo', $request, $response), HttpException::class];
 
@@ -56,7 +61,13 @@ final class PromiseExceptionTest extends TestCase
 
         yield [$request, new GuzzleExceptions\ServerException('foo', $request, $response), HttpException::class];
 
-        yield [$request, new GuzzleExceptions\TransferException('foo'), TransferException::class];
+        if (method_exists(GuzzleExceptions\TransferException::class, 'getRequest')) {
+            // Guzzle 8
+            yield [$request, new GuzzleExceptions\TransferException('foo', $request), TransferException::class];
+        } else {
+            // Guzzle 7
+            yield [$request, new GuzzleExceptions\TransferException('foo'), TransferException::class];
+        }
 
         // check cases without response
         yield [$request, new GuzzleExceptions\RequestException('foo', $request), RequestException::class];
