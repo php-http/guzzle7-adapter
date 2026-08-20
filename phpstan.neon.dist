@@ -1,5 +1,30 @@
 parameters:
     level: 5
-    reportUnmatchedIgnoredErrors: false
     paths:
         - src
+        - tests
+
+    ignoreErrors:
+        -
+            message: '#^Non\-static access to static property Http\\Client\\Tests\\HttpBaseTest\:\:\$defaultHeaders\.$#'
+            identifier: staticProperty.nonStaticAccess
+            count: 1
+            # Only occurs with php-http/client-integration-tests ≥ 4.0.0
+            reportUnmatched: false
+            path: tests/DefaultHttpAdapterWithConfigTest.php
+
+        -
+            message: '#^Static access to instance property Http\\Client\\Tests\\HttpBaseTest\:\:\$defaultHeaders\.$#'
+            identifier: property.staticAccess
+            count: 1
+            # Only occurs with php-http/client-integration-tests < 4.0.0
+            reportUnmatched: false
+            path: tests/DefaultHttpAdapterWithConfigTest.php
+
+        -
+            message: '#^Attribute class PHPUnit\\Framework\\Attributes\\DataProvider does not exist\.$#'
+            identifier: attribute.notFound
+            count: 1
+            # Only occurs with phpunit/phpunit < 10.0.0
+            reportUnmatched: false
+            path: tests/PromiseExceptionTest.php
